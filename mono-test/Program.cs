@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace monotest
 {
@@ -6,7 +8,16 @@ namespace monotest
 	{
 		public static void Main (string[] args)
 		{
-			Console.WriteLine ("Hello World!");
+
+			KafkaReceiver kafkareceiver = new KafkaReceiver ();
+		
+			Logic logic = new Logic (kafkareceiver);
+
+			while (true) {
+				Thread.Sleep (500);
+				Console.WriteLine ("Hello World!");
+			}
 		}
+
 	}
 }
